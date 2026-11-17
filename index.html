@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f8f7">
+  <meta name="description" content="مَدار مساحة آمنة تلاقي فيها الأخصائي النفسي المناسب وتبدأ رحلتك نحو راحة أكبر.">
+  <title>مَدار | مساحة آمنة لنفسك</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="demo-banner" id="demoBanner" hidden>نسخة عرض تجريبي — استخدم بيانات وهمية فقط؛ لا يتم إرسال أو حفظ أي معلومات.</div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="مَدار - الصفحة الرئيسية">
+        <span class="brand-mark" aria-hidden="true">م</span>
+        <span class="brand-name">مَدار<small>مساحة آمنة لنفسك</small></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+      <nav class="main-nav" id="mainNav">
+        <a href="#specialists">الأخصائيون</a>
+        <a href="#how">كيف نبدأ؟</a>
+        <a href="#tests">اختبارات نفسية</a>
+        <a href="#stories">تجارب العملاء</a>
+        <a href="#faq">الأسئلة الشائعة</a>
+      </nav>
+      <div class="header-actions">
+        <button class="button button-quiet" data-open-dashboard="login">دخول الأخصائي</button>
+        <button class="button button-primary" data-open-dashboard="signup">انضم كأخصائي</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="eyebrow-dot"></span> ابدأ من حيث أنت</span>
+          <h1>خطوة صغيرة نحو<br><span>راحة أكبر.</span></h1>
+          <p class="hero-lead">مساحة آمنة تجمعك بأخصائيين نفسيين مستقلين، لتتحدث عن نفسك براحتك وتختار الدعم الذي يناسبك.</p>
+          <div class="hero-actions">
+            <a class="button button-primary button-large" href="#specialists">اكتشف الأخصائيين <span aria-hidden="true">←</span></a>
+            <a class="button button-outline button-large" href="#how">كيف تبدأ رحلتك؟</a>
+          </div>
+          <div class="hero-trust">
+            <div class="avatar-stack" aria-hidden="true"><span>س</span><span>م</span><span>ن</span><span>+</span></div>
+            <p><strong>مساحة لك، بدون أحكام</strong><small>اختر الأخصائي والوقت والطريقة المناسبة لك</small></p>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="رسم توضيحي لجلسة علاج نفسي عبر الإنترنت" role="img">
+          <div class="art-sun"></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+          <div class="art-plant plant-left"><i></i><i></i><i></i><b></b></div>
+          <div class="art-plant plant-right"><i></i><i></i><b></b></div>
+          <div class="art-window">
+            <div class="window-top"><span></span><span></span><span></span><em>جلسة آمنة</em></div>
+            <div class="window-person"><div class="person-hair"></div><div class="person-face"></div><div class="person-neck"></div><div class="person-body"></div></div>
+            <div class="window-caption"><span class="caption-dot"></span><span>يسعدني إنك هنا</span><span class="caption-wave">〰</span></div>
+          </div>
+          <div class="art-chair"><div class="chair-back"></div><div class="chair-seat"></div><div class="chair-leg"></div></div>
+          <div class="art-table"><span class="tea-cup"></span><span class="tea-book"></span></div>
+          <div class="floating-note note-top">مساحتك الخاصة ✦</div>
+          <div class="floating-note note-bottom"><span>♡</span> خذ وقتك</div>
+        </div>
+      </div>
+      <div class="hero-bottom container">
+        <span>دعم نفسي بطريقتك</span><span class="hero-line"></span><span>خصوصية واحترام</span><span class="hero-line"></span><span>أخصائيون مستقلون</span>
+      </div>
+    </section>
+
+    <section class="section specialists-section" id="specialists">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">اختيارك يبدأ من هنا</span>
+          <h2>تحدث مع أخصائي نفسي يناسبك</h2>
+          <p>تصفّح التخصصات، تعرّف على الأخصائيين، واختر من ترتاح للحديث معه.</p>
+        </div>
+        <div class="specialist-tools">
+          <label class="search-box"><span aria-hidden="true">⌕</span><input id="specialistSearch" type="search" placeholder="ابحث بالاسم أو التخصص..." aria-label="ابحث عن أخصائي"></label>
+          <div class="filter-chips" aria-label="تصفية حسب التخصص">
+            <button class="filter-chip active" data-filter="الكل">الكل</button>
+            <button class="filter-chip" data-filter="القلق والتوتر">القلق والتوتر</button>
+            <button class="filter-chip" data-filter="العلاقات">العلاقات</button>
+            <button class="filter-chip" data-filter="المزاج والاكتئاب">المزاج والاكتئاب</button>
+            <button class="filter-chip" data-filter="تطوير الذات">تطوير الذات</button>
+          </div>
+        </div>
+        <p class="database-status" id="databaseStatus" role="status" hidden></p>
+        <div class="specialist-grid" id="specialistGrid"></div>
+        <p class="empty-state" id="emptySpecialists" hidden>لا توجد نتائج مطابقة. جرّب كلمة أو تخصصًا آخر.</p>
+      </div>
+    </section>
+
+    <section class="section tests-section" id="tests">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">خطوة للتعرّف على نفسك</span>
+          <h2>اختبارات نفسية قصيرة</h2>
+          <p>أسئلة للتأمل وفهم مشاعرك بشكل أفضل. هذه الاختبارات ليست تشخيصًا طبيًا.</p>
+        </div>
+        <div class="tests-grid">
+          <article class="test-card"><span class="test-icon">◌</span><span class="tag">٣ دقائق</span><h3>كيف حالك هذه الأيام؟</h3><p>أسئلة تساعدك على ملاحظة حالتك المزاجية مؤخرًا.</p><button class="text-button" data-quiz="المزاج">ابدأ الاختبار <span>←</span></button></article>
+          <article class="test-card"><span class="test-icon">〰</span><span class="tag">٤ دقائق</span><h3>مؤشر التوتر اليومي</h3><p>تعرّف على العوامل التي قد تزيد شعورك بالضغط.</p><button class="text-button" data-quiz="التوتر">ابدأ الاختبار <span>←</span></button></article>
+          <article class="test-card"><span class="test-icon">♡</span><span class="tag">٣ دقائق</span><h3>مساحة لعلاقاتك</h3><p>تأمل في احتياجاتك وطريقة تواصلك مع الآخرين.</p><button class="text-button" data-quiz="العلاقات">ابدأ الاختبار <span>←</span></button></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section how-section" id="how">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">بخطوات بسيطة</span>
+          <h2>كيف تبدأ رحلتك؟</h2>
+          <p>لكل بداية وقتها، ونحن هنا لتسهيل أول خطوة.</p>
+        </div>
+        <div class="steps-panel">
+          <article class="step"><span class="step-number">01</span><div class="step-icon">⌕</div><h3>اختر من ترتاح له</h3><p>تصفّح الملفات والتخصصات، وخذ وقتك في الاختيار.</p></article>
+          <span class="step-connector" aria-hidden="true"></span>
+          <article class="step"><span class="step-number">02</span><div class="step-icon">▦</div><h3>حدّد الموعد المناسب</h3><p>أرسل طلب الحجز واختر الطريقة التي تفضّلها للجلسة.</p></article>
+          <span class="step-connector" aria-hidden="true"></span>
+          <article class="step"><span class="step-number">03</span><div class="step-icon">♡</div><h3>ابدأ على راحتك</h3><p>تواصل مع الأخصائي واتفقا على تفاصيل جلستكما.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stories-section" id="stories">
+      <div class="container">
+        <div class="section-heading heading-inline">
+          <div><span class="eyebrow">حكايات من رحلتهم</span><h2>كلمة طيبة تصنع فرقًا</h2></div>
+          <div class="story-controls"><button id="storyPrev" aria-label="التجربة السابقة">→</button><button id="storyNext" aria-label="التجربة التالية">←</button></div>
+        </div>
+        <div class="stories-grid" id="storiesGrid">
+          <article class="story-card"><span class="quote-mark">“</span><p>أول مرة أحس إني أقدر أتكلم من غير ما أرتب كلامي أو أخاف من الحكم عليّ.</p><div class="story-person"><span class="story-avatar">م</span><span><strong>مشاركة مجهولة</strong><small>من تجربة عميلة</small></span><span class="story-stars">★★★★★</span></div></article>
+          <article class="story-card"><span class="quote-mark">“</span><p>الخطوة الأولى كانت أصعب حاجة، وبعدها بقي عندي مساحة أفهم فيها نفسي بهدوء.</p><div class="story-person"><span class="story-avatar lavender">س</span><span><strong>مشاركة مجهولة</strong><small>من تجربة عميلة</small></span><span class="story-stars">★★★★★</span></div></article>
+          <article class="story-card"><span class="quote-mark">“</span><p>اختيار أخصائية مناسبة لظروفي خلّى التواصل أسهل بكتير، وممتنة للتجربة.</p><div class="story-person"><span class="story-avatar peach">ر</span><span><strong>مشاركة مجهولة</strong><small>من تجربة عميلة</small></span><span class="story-stars">★★★★★</span></div></article>
+        </div>
+        <p class="disclaimer">نصوص توضيحية لنسخة العرض وليست شهادات عملاء حقيقية. كل رحلة دعم نفسي تختلف من شخص لآخر.</p>
+      </div>
+    </section>
+
+    <section class="section benefits-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">مساحتك، بطريقتك</span>
+          <h2>الدعم الذي يناسب يومك</h2>
+        </div>
+        <div class="benefits-grid">
+          <article><span>◷</span><h3>وقت يناسبك</h3><p>نسّق موعدك مباشرة مع الأخصائي واختر ما يلائم جدولك.</p></article>
+          <article><span>⌂</span><h3>من المكان الذي ترتاح فيه</h3><p>تواصل بالطريقة المناسبة لك، عن بُعد أو في العيادة حسب المتاح.</p></article>
+          <article><span>♡</span><h3>مساحة بلا أحكام</h3><p>رحلتك تخصك، وتستحق أن تبدأ بإيقاعك وبالقدر الذي يناسبك.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="container faq-container">
+        <div class="section-heading">
+          <span class="eyebrow">إجابات تساعدك</span>
+          <h2>الأسئلة الشائعة</h2>
+        </div>
+        <div class="faq-list">
+          <details><summary>كيف أختار الأخصائي المناسب لي؟</summary><p>ابدأ بقراءة نبذة الأخصائي وتخصصاته وطريقة الجلسات. يمكنك إرسال طلب حجز للتواصل معه ومناقشة ما تحتاجه قبل تحديد موعد.</p></details>
+          <details><summary>هل الاختبارات النفسية تشخّص حالتي؟</summary><p>لا. الاختبارات الموجودة هنا للتأمل والتوعية فقط، ولا تُغني عن تقييم متخصص أو استشارة مهنية.</p></details>
+          <details><summary>هل الجلسة أونلاين أم في العيادة؟</summary><p>يعتمد ذلك على ما يتيحه كل أخصائي. ستجد طريقة الجلسات في ملفه ويمكنك الاتفاق معه عند إرسال طلب الحجز.</p></details>
+          <details><summary>هل المنصة جهة طبية أو للطوارئ؟</summary><p>مَدار مساحة للتعرّف على أخصائيين مستقلين وليست خدمة طوارئ. إذا كنت في خطر فوري، تواصل مع خدمات الطوارئ المحلية أو شخص تثق به الآن.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="join-banner">
+      <div class="container join-inner"><div><span class="eyebrow">للمختصين</span><h2>مساحتك المهنية تبدأ من هنا</h2><p>أنشئ ملفًا تعريفيًا وشارك خبرتك مع أشخاص يبحثون عن الدعم.</p></div><button class="button button-light button-large" data-open-dashboard="signup">أنشئ ملفك المهني <span>←</span></button></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand"><a class="brand brand-light" href="#"><span class="brand-mark">م</span><span class="brand-name">مَدار<small>مساحة آمنة لنفسك</small></span></a><p>مساحة إنسانية للتواصل مع أخصائيين نفسيين مستقلين، تبدأ فيها رحلتك على راحتك.</p></div>
+      <div><h3>تصفّح</h3><a href="#specialists">الأخصائيون</a><a href="#tests">الاختبارات</a><a href="#how">كيف نبدأ؟</a></div>
+      <div><h3>معلومات</h3><a href="#faq">الأسئلة الشائعة</a><a href="#stories">تجارب العملاء</a><button class="footer-link" data-open-dashboard>للأخصائيين</button></div>
+      <div class="footer-note"><span>تنويه مهم</span><p>مَدار ليست جهة طوارئ أو بديلًا عن خدمات الرعاية الصحية. عند الخطر الفوري، تواصل مع الطوارئ المحلية.</p></div>
+    </div>
+    <div class="container footer-bottom"><span>© 2026 مَدار. مساحة آمنة لنفسك.</span><span>صُمّم باحترام لخصوصيتك.</span></div>
+  </footer>
+
+  <dialog class="app-dialog" id="appDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-shell">
+      <div class="dialog-header"><div><span class="eyebrow" id="dialogEyebrow">مَدار</span><h2 id="dialogTitle">ابدأ هنا</h2></div><button class="icon-button" data-close-dialog aria-label="إغلاق">×</button></div>
+      <div class="dialog-content" id="dialogContent"></div>
+    </div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
